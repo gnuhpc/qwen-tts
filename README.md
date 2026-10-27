@@ -20,9 +20,23 @@
 
 ## 📦 安装与依赖
 
-### 1. Python 依赖
+### 1. 🤖 让 AI Agent 自动安装（推荐）
+
+直接复制以下 Prompt 发送给你的 AI Agent（如 Claude Code、Codex、Antigravity、OpenClaw、Cursor 等）：
+
+```text
+请帮我安装 qwen-tts 技能：
+1. 将 https://github.com/gnuhpc/qwen-tts.git 克隆到当前环境的 skills 目录（如 ~/.gemini/skills/qwen-tts 或 ~/.claude/skills/qwen-tts，若已存在则 git pull 更新）；
+2. 安装 Python 依赖：pip install -r requirements.txt；
+3. 检查系统是否已安装 ffmpeg/ffprobe，并检查 ~/.env 或环境变量中是否已配置 DASHSCOPE_API_KEY（若未配置请提示我如何设置）；
+4. 运行 python3 scripts/fetch_voices.py --models --callable-only 验证安装是否成功。
+```
+
+### 2. 手动安装与 Python 依赖
 
 ```bash
+git clone https://github.com/gnuhpc/qwen-tts.git
+cd qwen-tts
 pip install -r requirements.txt
 ```
 
@@ -31,7 +45,7 @@ pip install -r requirements.txt
 - `requests>=2.25.0`
 - `beautifulsoup4>=4.12.0`
 
-### 2. 可选系统工具（推荐安装）
+### 3. 可选系统工具（推荐安装）
 
 - `ffmpeg` / `ffprobe`：用于本地复刻样本的时长/采样率预检，以及 `Qwen-TTS` 输出音频格式的自动转换。
   ```bash
